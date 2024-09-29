@@ -1,0 +1,24 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+	public static int findSecondLargest(int n, int[] arr) {
+		// Write your code here.
+
+		Map<Integer,Integer> mp = new HashMap<>();
+		for(int x:arr)
+			mp.put(x,mp.getOrDefault(x,0)+1);
+
+		int mx = Integer.MIN_VALUE , smx = Integer.MIN_VALUE;
+		for(int x:mp.keySet()){
+			if(x>mx){
+				smx = mx;
+				mx = x;
+			}
+			else if(x>smx)
+				smx = x;
+		}
+		if(smx != Integer.MIN_VALUE)
+			return smx;
+		return -1;
+	}
+}
