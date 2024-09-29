@@ -1,0 +1,38 @@
+import java.util.*;
+
+class Solution {
+
+    static String reverseStringWordWise(String input) {
+        // Write your code here
+        String s = input.trim();
+        int i=0;
+        StringBuilder sb = new StringBuilder();
+        List<String> ans = new ArrayList<>();
+        while(i<s.length()){
+            char ch = s.charAt(i++);
+            if(ch==' '){
+                if(sb.length()!=0)
+                    ans.add(sb.toString());
+                    ans.add(" ");
+                    sb = new StringBuilder("");
+            } else{
+                sb.append(ch);
+            }
+        }
+        if(sb.length()!=0)
+            ans.add(sb.toString());
+
+        StringBuilder res = new StringBuilder();
+        for(int idx=ans.size()-1;idx>=0;idx--)
+            res.append(ans.get(idx));
+
+        return res.toString();
+    }
+
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+        String ans = reverseStringWordWise(input);
+        System.out.println(ans);
+    }
+}
