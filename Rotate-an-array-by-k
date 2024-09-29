@@ -1,0 +1,13 @@
+import java.util.ArrayList;
+
+public class Solution {
+	public static ArrayList<Integer> rotateArray(ArrayList<Integer> arr, int k) {
+        // Write your code here.
+        k%=arr.size();
+        while(k--!=0){
+            int tmp = arr.remove(0);
+            arr.add(tmp);
+        }
+        return arr;
+    }
+}
